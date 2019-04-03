@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3 align="center" style="font-weight: bold">Consulta de Productos</h3>
+    <h3 align="center" style="font-weight: bold">Consulta de Ventas</h3>
     <div class="form-row">
         <div class="form-group col-md-2">
             <asp:Label Text="Filtro" class="text-success" runat="server" />
@@ -17,7 +17,7 @@
             <asp:TextBox ID="CriterioTextBox" AutoCompleteType="Disabled" class="form-control input-group" runat="server"></asp:TextBox>
         </div>
         <div class="col-lg-1 p-0">
-            <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-outline-primary mt-4" runat="server">
+            <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-outline-primary mt-4" runat="server" OnClick="buscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                  Buscar
             </asp:LinkButton>

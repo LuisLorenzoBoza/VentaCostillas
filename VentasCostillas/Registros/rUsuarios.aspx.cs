@@ -14,8 +14,11 @@ namespace VentasCostillas.Registros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
-            totalTextBox.Text = "0";
+            if (!Page.IsPostBack)
+            {
+                fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                totalTextBox.Text = "0";
+            }
         }
 
         private void Limpiar()
@@ -34,7 +37,8 @@ namespace VentasCostillas.Registros
             Usuarios usuario = new Usuarios();
 
             usuario.UsuarioId = ToInt(usuarioIdTextBox.Text);
-            usuario.Fecha = Convert.ToDateTime(fechaTextBox.Text).Date;
+            bool resultado = DateTime.TryParse(fechaTextBox.Text, out DateTime fecha);
+            usuario.Fecha = fecha;
             usuario.Nombres = nombreTextBox.Text;
             usuario.Email = emailTextBox.Text;
             usuario.Contraseña = ContraseñaTextBox.Text;
@@ -102,7 +106,7 @@ namespace VentasCostillas.Registros
                 //todo: validaciones adicionales
                 usuario = LlenaClase();
 
-                if (usuario.UsuarioId == 0)
+                if (Utils.ToInt(usuarioIdTextBox.Text) == 0)
                 {
                     paso = repositorio.Guardar(usuario);
                     Utils.ShowToastr(this, "Guardado", "Correcto", "success");
@@ -118,7 +122,7 @@ namespace VentasCostillas.Registros
                     if (user != null)
                     {
                         paso = repositorio.Modificar(LlenaClase());
-                        Utils.ShowToastr(this, "Guardado", "Correcto", "success");
+                        Utils.ShowToastr(this, "Modificado", "Correcto", "success");
                     }
                     else
                         Utils.ShowToastr(this, "No encontrado", "Error", "error");

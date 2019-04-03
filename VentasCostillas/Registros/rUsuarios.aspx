@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <br>
+    <h3 align="center" style="font-weight: bold">Registro de Usuarios</h3>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">

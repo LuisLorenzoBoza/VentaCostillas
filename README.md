@@ -1,4 +1,4 @@
-Proyecto final de Aplicada 2, el programa es para la venta de productos, e mismo registra el usuario, 
+Proyecto final de Aplicada 2, el programa es para la venta de productos, el mismo registra el usuario, 
 registra productos y genera facturas para el control del negocio.
 
 Herramientas utilizadas:

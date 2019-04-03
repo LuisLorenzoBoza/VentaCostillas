@@ -18,7 +18,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body background="Resources/Costillas.jpg" >
     <form id="form1" runat="server">
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">

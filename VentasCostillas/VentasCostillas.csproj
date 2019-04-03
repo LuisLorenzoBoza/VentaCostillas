@@ -115,6 +115,31 @@
     <Content Include="Registros\rProductos.aspx" />
     <Content Include="Registros\rUsuarios.aspx" />
     <Content Include="Registros\rVentas.aspx" />
+    <Content Include="Resources\Costillas.jpg" />
+    <Content Include="Resources\iconfinder_bill_416404.png" />
+    <Content Include="Resources\iconfinder_cart_3018582.png" />
+    <Content Include="Resources\iconfinder_Delete_1493279.png" />
+    <Content Include="Resources\iconfinder_eccomerce_-_search_3440910.png" />
+    <Content Include="Resources\iconfinder_lock_511942.png" />
+    <Content Include="Resources\iconfinder_new-file_85332.png" />
+    <Content Include="Resources\iconfinder_Print_1493286.png" />
+    <Content Include="Resources\iconfinder_Save_70652.png" />
+    <Content Include="Resources\iconfinder_user-group_285648.png" />
+    <Content Include="Resources\if_basket_1814090.png" />
+    <Content Include="Resources\if_clients_43573.png" />
+    <Content Include="Resources\if_Find01_928435.png" />
+    <Content Include="Resources\if_ic_fiber_new_48px_3669431.png" />
+    <Content Include="Resources\if_Login Manager_7261.png" />
+    <Content Include="Resources\if_minus_square_black_243656.png" />
+    <Content Include="Resources\if_Plus_206460.png" />
+    <Content Include="Resources\if_save_46830.png" />
+    <Content Include="Resources\if_sign-add_299068.png" />
+    <Content Include="Resources\if_users_61816.png" />
+    <Content Include="Resources\if_window-new_3671912.png" />
+    <Content Include="Resources\PcJ_2.pcj.jpg" />
+    <Content Include="Resources\PcJ_3.jpg" />
+    <Content Include="Resources\PcJ_Buffet.jpg" />
+    <Content Include="Resources\pedido.jpg.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -258,7 +283,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Fuentes\" />
     <Folder Include="Models\" />
     <Folder Include="Reportes\" />
   </ItemGroup>

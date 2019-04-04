@@ -18,7 +18,6 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body background="Resources/Costillas.jpg" >
     <form id="form1" runat="server">
         <div>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,6 +33,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Registros/rProductos.aspx">Productos</a>
+                                <a class="dropdown-item" href="/Registros/rEntradas.aspx">Entradas</a>
                                 <a class="dropdown-item" href="/Registros/rUsuarios.aspx">Usuarios</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/Registros/rVentas.aspx">Ventas</a>
@@ -44,6 +44,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Consultas/cProductos.aspx">Productos</a>
+                                <a class="dropdown-item" href="/Consultas/cEntradas.aspx">Entradas</a>
                                 <a class="dropdown-item" href="/Consultas/cUsuarios.aspx">Usuarios</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="/Consultas/cVentas.aspx">Ventas</a>

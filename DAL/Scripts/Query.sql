@@ -1,1 +1,2 @@
-Create database PFA2
+
+select * from Usuarios

@@ -73,7 +73,7 @@ namespace VentasCostillas.Registros
             if (producto != null)
             {
                 DescripcionTextBox.Text = producto.Descripcion;
-                fechaTextBox.Text = producto.Fecha.ToString("yyyy/MM/dd");
+                fechaTextBox.Text = producto.Fecha.ToString("yyyy-MM-dd");
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CantidadTextBox.Text = producto.Cantidad.ToString();
                 Utils.ShowToastr(this, "Encontrado", "Correcto", "success");

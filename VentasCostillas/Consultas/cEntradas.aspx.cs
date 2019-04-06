@@ -54,7 +54,7 @@ namespace VentasCostillas.Consultas
                     break;
 
                 case 2:
-                    filtro = p => p.EntradaId.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
+                    filtro = p => p.EntradaId.Equals(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
             }
 

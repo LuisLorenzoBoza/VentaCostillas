@@ -20,6 +20,7 @@ namespace VentasCostillas.Registros
             if (!Page.IsPostBack)
             {
                 fechaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                CantidadTextBox.Text = "0";
             }
         }
 
@@ -37,11 +38,10 @@ namespace VentasCostillas.Registros
             Productos productos = new Productos();
             
             productos.ProductoId = ToInt(productoIdTextBox.Text);
-            bool resultado = DateTime.TryParse(fechaTextBox.Text, out DateTime fecha);
-            productos.Fecha = fecha;
+            productos.Fecha = DateTime.Now;
             productos.Descripcion = DescripcionTextBox.Text;
             productos.Precio = Utils.ToDecimal(PrecioTextBox.Text);
-            productos.Cantidad = Utils.ToInt(CantidadTextBox.Text);
+            productos.Cantidad = 0;
 
             return productos;
         }
@@ -73,7 +73,6 @@ namespace VentasCostillas.Registros
             if (producto != null)
             {
                 DescripcionTextBox.Text = producto.Descripcion;
-                fechaTextBox.Text = producto.Fecha.ToString("yyyy-MM-dd");
                 PrecioTextBox.Text = producto.Precio.ToString();
                 CantidadTextBox.Text = producto.Cantidad.ToString();
                 Utils.ShowToastr(this, "Encontrado", "Correcto", "success");

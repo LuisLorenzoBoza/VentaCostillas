@@ -57,6 +57,7 @@ namespace BLL
                 {
                     paso = true;
                 }
+                _contexto.Dispose();
             }
             catch (Exception)
             {

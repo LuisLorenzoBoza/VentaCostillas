@@ -12,7 +12,7 @@ namespace BLL
 {
     public class EntradasBLL
     {
-        public static bool Guardar(Entradas entrada)
+        public bool Guardar(Entradas entrada)
         {
             bool paso = false;
 
@@ -36,7 +36,7 @@ namespace BLL
         }
 
 
-        public static bool Modificar(Entradas entrada)
+        public bool Modificar(Entradas entrada)
         {
             bool paso = false;
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
@@ -45,7 +45,7 @@ namespace BLL
 
             try
             {
-                Entradas EntrAnt = EntradasBLL.Buscar(entrada.EntradaId);
+                Entradas EntrAnt = Buscar(entrada.EntradaId);
 
                 var Producto = contexto.Productos.Find(entrada.ProductoId);
                 var ProductosAnteriores = contexto.Productos.Find(EntrAnt.ProductoId);                
@@ -79,7 +79,7 @@ namespace BLL
         }
 
 
-        public static bool Eliminar(int id)
+        public bool Eliminar(int id)
         {
             bool paso = false;
 
@@ -106,7 +106,7 @@ namespace BLL
         }
 
 
-        public static Entradas Buscar(int id)
+        public Entradas Buscar(int id)
         {
             Contexto contexto = new Contexto();
             Entradas entrada = new Entradas();
@@ -124,7 +124,7 @@ namespace BLL
         }
 
 
-        public static List<Entradas> GetList(Expression<Func<Entradas, bool>> expression)
+        public List<Entradas> GetList(Expression<Func<Entradas, bool>> expression)
         {
             List<Entradas> entradas = new List<Entradas>();
             Contexto contexto = new Contexto();

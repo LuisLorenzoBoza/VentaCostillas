@@ -17,7 +17,7 @@
             <asp:TextBox ID="CriterioTextBox" AutoCompleteType="Disabled" class="form-control input-group" runat="server"></asp:TextBox>
         </div>
         <div class="col-lg-1 p-0">
-            <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-outline-primary mt-4" runat="server">
+            <asp:LinkButton ID="buscarLinkButton" CssClass="btn btn-outline-primary mt-4" runat="server" OnClick="buscarLinkButton_Click">
                 <span class="fas fa-search"></span>
                  Buscar
             </asp:LinkButton>
@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="form-row justify-content-center">
-        <asp:GridView ID="ProductoGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#0066FF" GridLines="None">
+        <asp:GridView ID="EntradasGridView" runat="server" class="table table-condensed table-bordered table-responsive" AutoGenerateColumns="False" CellPadding="4" ForeColor="#0066FF" GridLines="None">
             <AlternatingRowStyle BackColor="#999999" />
             <Columns>
                 <asp:BoundField DataField="EntradaId" HeaderText="EntradaId" />

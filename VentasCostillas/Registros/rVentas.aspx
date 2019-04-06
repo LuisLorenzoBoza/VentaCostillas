@@ -3,71 +3,73 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br>
+    <hr>
     <h3 align="center" style="font-weight: bold">Registro de Ventas</h3>
-    <div class="col-md-4 col-md-offset-3">
+    <hr>
+    <div class="col-md-2 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label3" runat="server" Text="Id"></asp:Label>
-                <asp:Button class="btn btn-outline-info btn-md" ID="BuscarButton" runat="server" Text="Buscar" OnClick="BuscarButton_Click"/>
-                <asp:TextBox class="form-control" ID="IdTextBox" Text="0" runat="server"></asp:TextBox>
+                <asp:label id="Label3" runat="server" text="Id"></asp:label>
+                <asp:button class="btn btn-outline-info btn-md" id="BuscarButton" runat="server" text="Buscar" onclick="BuscarButton_Click" />
+                <asp:textbox class="form-control" type="number" id="IdTextBox" text="0" runat="server"></asp:textbox>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-md-offset-3">
+        <div class="container">
+            <div class="form-group">
+                <asp:label id="Label6" runat="server" text="Fecha"></asp:label>
+                <asp:textbox class="form-control" readonly="true" id="fechaTextBox" type="date" runat="server"></asp:textbox>
             </div>
         </div>
     </div>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label6" runat="server" Text="Fecha"></asp:Label>
-                <asp:TextBox class="form-control" ID="fechaTextBox" type="date" runat="server"></asp:TextBox>
+                <asp:label id="Label7" runat="server" text="Usuario"></asp:label>
+                <asp:dropdownlist class="form-control" id="UsuarioDropDownList" runat="server">
+                </asp:dropdownlist>
             </div>
         </div>
     </div>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label7" runat="server" Text="Usuario"></asp:Label>
-                <asp:DropDownList class="form-control" ID="UsuarioDropDownList" runat="server">
-                </asp:DropDownList>
-            </div>
-        </div>
-    </div>    
-    <div class="col-md-4 col-md-offset-3">
-        <div class="container">
-            <div class="form-group">
-                <asp:Label ID="Label5" runat="server" Text="Producto"></asp:Label>
-                <asp:DropDownList class="form-control" ID="ProductoDropDownList" runat="server" OnSelectedIndexChanged="ProductoDropDownList_SelectedIndexChanged">
-                </asp:DropDownList>
+                <asp:label id="Label5" runat="server" text="Producto"></asp:label>
+                <asp:dropdownlist class="form-control" id="ProductoDropDownList" runat="server" onselectedindexchanged="ProductoDropDownList_SelectedIndexChanged">
+                </asp:dropdownlist>
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label8" runat="server" Text="Cantidad"></asp:Label>
-                <asp:TextBox class="form-control" ID="CantidadTextBox" AutoPostBack="true" Text="0" runat="server" OnTextChanged="CantidadTextBox_TextChanged"></asp:TextBox>
-            </div>
-        </div>
-    </div>    
-    <div class="col-md-4 col-md-offset-3">
-        <div class="container">
-            <div class="form-group">
-                <asp:Label ID="Label9" runat="server" Text="Precio"></asp:Label>
-                <asp:TextBox class="form-control" ID="PrecioTextBox" AutoPostBack="true" ReadOnly="true" Text="0" runat="server"></asp:TextBox>
-            </div>
-        </div>
-    </div>    
-    <div class="col-md-4 col-md-offset-3">
-        <div class="container">
-            <div class="form-group">
-                <asp:Label ID="Label10" runat="server" Text="Importe"></asp:Label>
-                <asp:TextBox class="form-control" ID="ImporteTextBox" AutoPostBack="true" ReadOnly="true" Text="0" runat="server"></asp:TextBox>
-                <asp:Button class="btn btn-outline-info btn-md" ID="agregarButton" runat="server" Text="Agregar" OnClick="agregarButton_Click"/>  
+                <asp:label id="Label8" runat="server" text="Cantidad"></asp:label>
+                <asp:textbox class="form-control" id="CantidadTextBox" autopostback="true" text="0" runat="server" ontextchanged="CantidadTextBox_TextChanged"></asp:textbox>
             </div>
         </div>
     </div>
-    <asp:GridView ID="DetalleGridView" runat="server" class="table table-condensed table-bordered table-responsive" 
-        CellPadding="6" PageSize="7" ForeColor="#0066FF" GridLines="None" OnRowCommand="DetalleGridView_RowCommand" OnPageIndexChanging="DetalleGridView_PageIndexChanging">
+    <div class="col-md-4 col-md-offset-3">
+        <div class="container">
+            <div class="form-group">
+                <asp:label id="Label9" runat="server" text="Precio"></asp:label>
+                <asp:textbox class="form-control" id="PrecioTextBox" autopostback="true" readonly="true" text="0" runat="server"></asp:textbox>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-md-offset-3">
+        <div class="container">
+            <div class="form-group">
+                <asp:label id="Label10" runat="server" text="Importe"></asp:label>
+                <asp:textbox class="form-control" id="ImporteTextBox" autopostback="true" readonly="true" text="0" runat="server"></asp:textbox>
+                <asp:button class="btn btn-outline-info btn-md" id="agregarButton" runat="server" text="Agregar" onclick="agregarButton_Click" />
+            </div>
+        </div>
+    </div>
+    <hr>
+    <asp:gridview id="DetalleGridView" runat="server" class="table table-condensed table-bordered table-responsive"
+        cellpadding="6" pagesize="7" forecolor="#0066FF" gridlines="None" onrowcommand="DetalleGridView_RowCommand" onpageindexchanging="DetalleGridView_PageIndexChanging">
         <AlternatingRowStyle BackColor="#999999" />
         <Columns>
             <asp:TemplateField ShowHeader="False">
@@ -78,38 +80,40 @@
             </asp:TemplateField>
         </Columns>
         <HeaderStyle BackColor="#003366" Font-Bold="True" />
-    </asp:GridView>
+    </asp:gridview>
+    <hr>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label1" runat="server" Text="Total"></asp:Label>
-                <asp:TextBox class="form-control" ID="totalTextBox" ReadOnly="true" Text="0" runat="server"></asp:TextBox>
+                <asp:label id="Label1" runat="server" text="Total"></asp:label>
+                <asp:textbox class="form-control" id="totalTextBox" readonly="true" text="0" runat="server"></asp:textbox>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label2" runat="server" Text="Efectivo"></asp:Label>
-                <asp:TextBox class="form-control" ID="EfectivoTextBox" AutoPostBack="true" Text="0" runat="server" OnTextChanged="EfectivoTextBox_TextChanged"></asp:TextBox>
+                <asp:label id="Label2" runat="server" text="Efectivo"></asp:label>
+                <asp:textbox class="form-control" id="EfectivoTextBox" autopostback="true" text="0" runat="server" ontextchanged="EfectivoTextBox_TextChanged"></asp:textbox>
             </div>
         </div>
-    </div>    
+    </div>
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:Label ID="Label4" runat="server" Text="Devuelta"></asp:Label>
-                <asp:TextBox class="form-control" ID="DevueltaTextBox" ReadOnly="true" Text="0" runat="server"></asp:TextBox>
+                <asp:label id="Label4" runat="server" text="Devuelta"></asp:label>
+                <asp:textbox class="form-control" id="DevueltaTextBox" readonly="true" text="0" runat="server"></asp:textbox>
             </div>
         </div>
     </div>
     <div class="panel-footer">
         <div class="text-center">
             <div class="form-group" style="display: inline-block">
-                <asp:Button class="btn btn-outline-primary btn-md" ID="nuevoButton" runat="server" Text="Nuevo" OnClick="nuevoButton_Click" />
-                <asp:Button class="btn btn-outline-success btn-md" ID="guardarButton" runat="server" Text="Guardar" OnClick="guardarButton_Click" />
-                <asp:Button class="btn btn-outline-danger btn-md" ID="eliminarutton" runat="server" Text="Eliminar" OnClick="eliminarutton_Click" />
+                <asp:button class="btn btn-outline-primary btn-md" id="nuevoButton" runat="server" text="Nuevo" onclick="nuevoButton_Click" />
+                <asp:button class="btn btn-outline-success btn-md" id="guardarButton" runat="server" text="Guardar" onclick="guardarButton_Click" />
+                <asp:button class="btn btn-outline-danger btn-md" id="eliminarutton" runat="server" text="Eliminar" onclick="eliminarutton_Click" />
             </div>
         </div>
     </div>
+    <hr>
 </asp:Content>

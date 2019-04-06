@@ -45,8 +45,7 @@ namespace VentasCostillas.Registros
             Ventas venta = new Ventas();
 
             venta.VentaId = Utils.ToInt(IdTextBox.Text);
-            bool resultado = DateTime.TryParse(fechaTextBox.Text, out DateTime fecha);
-            venta.Fecha = fecha;
+            venta.Fecha = DateTime.Now;
             venta.UsuarioId = Utils.ToIntObjetos(UsuarioDropDownList.SelectedValue);
             venta.TotalAPagar = Utils.ToDecimal(totalTextBox.Text);
             venta.Efectivo = Utils.ToDecimal(totalTextBox.Text);
@@ -70,7 +69,6 @@ namespace VentasCostillas.Registros
         {
             List<VentasDetalle> detalles = Detalle(Utils.ToInt(IdTextBox.Text));
             ViewState["Detalle"] = detalles;
-            fechaTextBox.Text = venta.Fecha.ToString("yyyy-MM-dd");
             UsuarioDropDownList.SelectedValue = venta.UsuarioId.ToString();
             DetalleGridView.DataSource = ViewState["Detalle"];
             DetalleGridView.DataBind();
@@ -93,6 +91,25 @@ namespace VentasCostillas.Registros
             DevueltaTextBox.Text = "";
             DetalleGridView.DataSource = null;
             DetalleGridView.DataBind();
+        }
+
+        public bool Producto()
+        {
+            RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
+            Productos producto = new Productos();
+            int id = Utils.ToIntObjetos(ProductoDropDownList.SelectedValue);
+            int cant = 0;
+            producto = repositorio.Buscar(id);
+            cant = producto.Cantidad;
+            bool paso = false;
+
+            if (cant <= 0)
+            {
+                Utils.ShowToastr(this, "Producto agotado.", "Error", "error");
+                paso = true;
+            }
+
+            return paso;
         }
 
         private bool Validar()
@@ -124,6 +141,11 @@ namespace VentasCostillas.Registros
                 Utils.ShowToastr(this, "Cantidad Incorrecta", "Error", "error");
                 paso = true;
             }
+            if (String.IsNullOrWhiteSpace(EfectivoTextBox.Text) || Utils.ToInt(EfectivoTextBox.Text) == 0)
+            {
+                Utils.ShowToastr(this, "Debe Pagar", "Error", "error");
+                paso = true;
+            }
             return paso;
         }
 
@@ -153,10 +175,12 @@ namespace VentasCostillas.Registros
         protected void ProductoDropDownList_SelectedIndexChanged(object sender, EventArgs e)
         {
             Precio();
+            ImporteTextBox.Text = "";
         }
 
         protected void CantidadTextBox_TextChanged(object sender, EventArgs e)
         {
+            PrecioTextBox.Text = "";
             Precio();
             Importe();
         }
@@ -177,26 +201,47 @@ namespace VentasCostillas.Registros
             List<VentasDetalle> detalles = new List<VentasDetalle>();
             if (IsValid)
             {
+                RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
+                Productos producto = new Productos();
+                int id = Utils.ToIntObjetos(ProductoDropDownList.SelectedValue);
+                string descripcion = string.Empty; ;
+                producto = repositorio.Buscar(id);
+                descripcion = producto.Descripcion;
+
                 DateTime date = DateTime.Now.Date;
                 int cantidad = Utils.ToInt(CantidadTextBox.Text);
                 decimal precio = Utils.ToDecimal(PrecioTextBox.Text);
                 decimal importe = Utils.ToDecimal(ImporteTextBox.Text);
+
+                if (Producto())
+                {
+                    return;
+                }
 
                 Ventas venta = new Ventas();
                 if (DetalleGridView.Rows.Count != 0)
                 {
                     venta.Detalle = (List<VentasDetalle>)ViewState["Detalle"];
                 }
-
+                if (Utils.ToIntObjetos(UsuarioDropDownList.SelectedValue) < 1)
+                {
+                    Utils.ShowToastr(this, "No hay Usuarios guardado.", "Error", "error");
+                    return;
+                }
+                if (Utils.ToIntObjetos(ProductoDropDownList.SelectedValue) < 1)
+                {
+                    Utils.ShowToastr(this, "No  hay Productos guardado.", "Error", "error");
+                    return;
+                }
                 if (Utils.ToInt(IdTextBox.Text) == 0)
                 {
                     VentasDetalle detalle = new VentasDetalle();
-                    venta.Detalle.Add(new VentasDetalle(0, detalle.VentaId, Utils.ToInt(ProductoDropDownList.SelectedValue), ProductoDropDownList.Text, cantidad, precio, importe));
+                    venta.Detalle.Add(new VentasDetalle(0, detalle.VentaId, Utils.ToInt(ProductoDropDownList.SelectedValue), descripcion, cantidad, precio, importe));
                 }
                 else
                 {
                     VentasDetalle detalle = new VentasDetalle();
-                    venta.Detalle.Add(new VentasDetalle(0, Utils.ToInt(IdTextBox.Text), Utils.ToInt(ProductoDropDownList.SelectedValue), ProductoDropDownList.Text, cantidad, precio, importe));
+                    venta.Detalle.Add(new VentasDetalle(0, Utils.ToInt(IdTextBox.Text), Utils.ToInt(ProductoDropDownList.SelectedValue), descripcion, cantidad, precio, importe));
                 }
                 ViewState["Detalle"] = venta.Detalle;
                 DetalleGridView.DataSource = ViewState["Detalle"];

@@ -3,22 +3,23 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <br>
+    <hr>
     <h3 align="center" style="font-weight: bold">Registro de Usuarios</h3>
-    <div class="col-md-4 col-md-offset-3">
+    <hr>
+    <div class="col-md-2 col-md-offset-3">
         <div class="container">
             <div class="form-group">
                 <asp:Label ID="Label3" runat="server" Text="UsuarioId"></asp:Label>
                 <asp:Button class="btn btn-outline-info btn-md" ID="BuscarButton" runat="server" Text="Buscar" OnClick="BuscarButton_Click" />
-                <asp:TextBox class="form-control" ID="usuarioIdTextBox" Text="0" runat="server"></asp:TextBox>
+                <asp:TextBox class="form-control" type="number" ID="usuarioIdTextBox" Text="0" runat="server"></asp:TextBox>
             </div>
         </div>
     </div>
-    <div class="col-md-4 col-md-offset-3">
+    <div class="col-md-2 col-md-offset-3">
         <div class="container">
             <div class="form-group">
                 <asp:Label ID="Label10" runat="server" Text="Fecha"></asp:Label>
-                <asp:TextBox class="form-control" ID="fechaTextBox" type="date" runat="server"></asp:TextBox>
+                <asp:TextBox class="form-control" ReadOnly="true" ID="fechaTextBox" type="date" runat="server"></asp:TextBox>
             </div>
         </div>
     </div>
@@ -71,4 +72,5 @@
             </div>
         </div>
     </div>
+    <hr>
 </asp:Content>

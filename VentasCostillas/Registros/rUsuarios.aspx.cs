@@ -37,8 +37,7 @@ namespace VentasCostillas.Registros
             Usuarios usuario = new Usuarios();
 
             usuario.UsuarioId = ToInt(usuarioIdTextBox.Text);
-            bool resultado = DateTime.TryParse(fechaTextBox.Text, out DateTime fecha);
-            usuario.Fecha = fecha;
+            usuario.Fecha = DateTime.Now;
             usuario.Nombres = nombreTextBox.Text;
             usuario.Email = emailTextBox.Text;
             usuario.Contraseña = ContraseñaTextBox.Text;
@@ -80,7 +79,6 @@ namespace VentasCostillas.Registros
             if (usuario != null)
             {
                 nombreTextBox.Text = usuario.Nombres;
-                fechaTextBox.Text = usuario.Fecha.ToString("yyyy/MM/dd");
                 emailTextBox.Text = usuario.Email;
                 ContraseñaTextBox.Text = usuario.Contraseña;
                 ConfirmarTextBox.Text = usuario.Contraseña;

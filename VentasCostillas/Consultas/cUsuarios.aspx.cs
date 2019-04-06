@@ -14,6 +14,7 @@ namespace VentasCostillas.Consultas
     {
         DateTime desde;
         DateTime hasta;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)

@@ -62,6 +62,8 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UnitTestEntradas.cs" />
+    <Compile Include="UnitTestVentas.cs" />
     <Compile Include="UnitTestProductos.cs" />
     <Compile Include="UnitTestUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

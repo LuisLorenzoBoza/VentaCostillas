@@ -1,3 +1,5 @@
 
 select * from Usuarios
-select * from Productos
+select * from Producto
+select * from Ventas
+select * from Entradas

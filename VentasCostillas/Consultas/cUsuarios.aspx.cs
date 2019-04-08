@@ -44,6 +44,7 @@ namespace VentasCostillas.Consultas
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             List<Usuarios> list = new List<Usuarios>();
             int index = ToInt(FiltroDropDownList.SelectedIndex);
+            int id;
             switch (index)
             {
                 case 0:
@@ -55,6 +56,11 @@ namespace VentasCostillas.Consultas
 
                 case 2:
                     filtro = p => p.Nombres.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
+                    break;
+
+                case 3://ID
+                    id = Convert.ToInt32(CriterioTextBox.Text);
+                    filtro = c => c.UsuarioId == id;
                     break;
             }
 

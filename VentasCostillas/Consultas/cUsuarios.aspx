@@ -10,6 +10,7 @@
                 <asp:ListItem>Todo</asp:ListItem>
                 <asp:ListItem>Fecha</asp:ListItem>
                 <asp:ListItem>Nombre</asp:ListItem>
+                <asp:ListItem>UsuarioId</asp:ListItem>
             </asp:DropDownList>
         </div>
         <div class="form-group col-md-3">

@@ -69,5 +69,10 @@ namespace VentasCostillas.Consultas
             UsuarioGridView.DataSource = list;
             UsuarioGridView.DataBind();
         }
+
+        protected void ImprimirLinkButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Reportes/ReporteUsuarios.aspx");
+        }
     }
 }

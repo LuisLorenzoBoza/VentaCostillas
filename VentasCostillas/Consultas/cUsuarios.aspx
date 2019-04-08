@@ -50,7 +50,7 @@
     <div class="col-md-4 col-md-offset-3">
         <div class="container">
             <div class="form-group">
-                <asp:LinkButton ID="ImprimirLinkButton" CssClass="btn btn-outline-info mt-4" runat="server">
+                <asp:LinkButton ID="ImprimirLinkButton" CssClass="btn btn-outline-info mt-4" runat="server" OnClick="ImprimirLinkButton_Click">
                             <span class="fas fa-print"></span>
                             Imprimir
                 </asp:LinkButton>

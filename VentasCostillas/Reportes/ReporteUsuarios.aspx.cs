@@ -20,7 +20,7 @@ namespace VentasCostillas.Reportes
             {
                 UsuariosReportViewer.ProcessingMode = ProcessingMode.Local;
                 UsuariosReportViewer.Reset();
-                UsuariosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListadoDepositos.rdlc");
+                UsuariosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListUsuarios.rdlc");
                 UsuariosReportViewer.LocalReport.DataSources.Clear();
                 UsuariosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Usuarios", BLL.Funciones.FUsuarios(filtro)));
                 UsuariosReportViewer.LocalReport.Refresh();

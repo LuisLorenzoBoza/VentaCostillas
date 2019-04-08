@@ -21,6 +21,8 @@ namespace VentasCostillas.Consultas
             {
                 DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                
             }
         }
 
@@ -41,7 +43,7 @@ namespace VentasCostillas.Consultas
             if (resultad)
                 hasta = date1;
             Expression<Func<Usuarios, bool>> filtro = p => true;
-            RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
+            RepositorioBase<Usuarios> repositorioBase = new RepositorioBase<Usuarios>();
             List<Usuarios> list = new List<Usuarios>();
             int index = ToInt(FiltroDropDownList.SelectedIndex);
             int id;
@@ -50,11 +52,11 @@ namespace VentasCostillas.Consultas
                 case 0:
                     break;
 
-                case 1:
+                case 1://Fecha
                     filtro = p => p.Fecha >= desde && p.Fecha <= hasta;
                     break;
 
-                case 2:
+                case 2://Nombres
                     filtro = p => p.Nombres.Contains(CriterioTextBox.Text) && p.Fecha >= desde && p.Fecha <= hasta;
                     break;
 
@@ -64,7 +66,7 @@ namespace VentasCostillas.Consultas
                     break;
             }
 
-            list = repositorio.GetList(filtro);
+            list = repositorioBase.GetList(filtro);
 
             UsuarioGridView.DataSource = list;
             UsuarioGridView.DataBind();

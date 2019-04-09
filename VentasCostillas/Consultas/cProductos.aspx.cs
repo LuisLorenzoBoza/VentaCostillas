@@ -1,5 +1,6 @@
 ﻿using BLL;
 using Entities;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +16,20 @@ namespace VentasCostillas.Consultas
     {
         DateTime desde;
         DateTime hasta;
+        Expression<Func<Productos, bool>> filtrar = f => true;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 DesdeTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 HastaTextBox.Text = DateTime.Now.ToString("yyyy-MM-dd");
+
+                ProductosReportViewer.ProcessingMode = ProcessingMode.Local;
+                ProductosReportViewer.Reset();
+                ProductosReportViewer.LocalReport.ReportPath = Server.MapPath(@"~\Reportes\ListProductos.rdlc");
+                ProductosReportViewer.LocalReport.DataSources.Clear();
+                ProductosReportViewer.LocalReport.DataSources.Add(new ReportDataSource("Productos", Funciones.Productos(filtrar)));
+                ProductosReportViewer.LocalReport.Refresh();
             }
         }
 

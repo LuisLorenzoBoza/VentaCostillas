@@ -76,12 +76,12 @@ namespace VentasCostillas.Consultas {
         protected global::System.Web.UI.WebControls.GridView ProductoGridView;
         
         /// <summary>
-        /// ImprimirLinkButton control.
+        /// ProductosReportViewer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ImprimirLinkButton;
+        protected global::Microsoft.Reporting.WebForms.ReportViewer ProductosReportViewer;
     }
 }

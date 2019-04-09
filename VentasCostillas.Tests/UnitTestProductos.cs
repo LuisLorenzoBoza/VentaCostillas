@@ -17,11 +17,11 @@ namespace VentasCostillas.Tests
             Productos productos = new Productos();
             bool paso = false;
 
-            productos.ProductoId = 2;
+            productos.ProductoId = 5;
             productos.Fecha = DateTime.Now;
             productos.Descripcion = "Coca Cola";
             productos.Precio = 40;
-            
+            productos.Cantidad = 0;
 
             paso = repositorio.Guardar(productos);
             Assert.AreEqual(true, paso);
@@ -33,9 +33,9 @@ namespace VentasCostillas.Tests
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
             Productos productos = new Productos();
-            productos = repositorio.Buscar(1);
+            productos = repositorio.Buscar(5);
             bool paso = false;
-            productos.Descripcion = "Coca Cola";
+            productos.Descripcion = "Coca-Cola";
             paso = repositorio.Modificar(productos);
             Assert.AreEqual(true, paso);
         }
@@ -46,7 +46,7 @@ namespace VentasCostillas.Tests
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
             Productos productos = new Productos();
-            productos = repositorio.Buscar(1);
+            productos = repositorio.Buscar(5);
             Assert.IsNotNull(productos);
         }
 
@@ -66,9 +66,8 @@ namespace VentasCostillas.Tests
         public void Eliminar()
         {
             RepositorioBase<Productos> repositorio = new RepositorioBase<Productos>();
-            int id = 2;
             bool paso = false;
-            paso = repositorio.Eliminar(id);
+            paso = repositorio.Eliminar(5);
             Assert.AreEqual(true, paso);
         }
     }

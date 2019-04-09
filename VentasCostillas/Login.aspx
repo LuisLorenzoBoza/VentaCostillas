@@ -39,7 +39,7 @@
                         <asp:TextBox ID="emailTextBox" class="form-control mr-md-2" runat="server"></asp:TextBox>
                         <asp:Label ID="Label4" runat="server" Text="Contraseña"></asp:Label>
                         <asp:TextBox ID="passwordTextBox" type="password" class="form-control mr-md-2" runat="server"></asp:TextBox>
-                        <asp:Button ID="LoginButton" class="btn btn-success my-2 my-sm-0" runat="server" Text="Login"/>
+                        <asp:LinkButton ID="LoginButton"  class="btn btn-success my-2 my-sm-0" runat="server" Text="Login" OnClick="LoginButton_Click"/>
                     </form>
                 </div>
             </div>

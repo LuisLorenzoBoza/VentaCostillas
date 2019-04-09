@@ -23,6 +23,8 @@ namespace VentasCostillas.Tests
             ventas.TotalAPagar = 1800;
             ventas.Efectivo = 2000;
             ventas.Devuelta = 200;
+            ventas.Detalle.Add(new VentasDetalle(3, 2, 3, "Coca Cola", 2, 40, 80));
+            ventas.Detalle.Add(new VentasDetalle(4, 2, 4, "Coca-Cola", 1, 40, 40));
 
             paso = repositorio.Guardar(ventas);
             Assert.AreEqual(true, paso);
@@ -34,11 +36,8 @@ namespace VentasCostillas.Tests
         {
             RepositorioBase<Ventas> repositorio = new RepositorioBase<Ventas>();
             Ventas ventas = new Ventas();
-            ventas = repositorio.Buscar(1);
-            bool paso = false;
-            ventas.VentaId = 2;
-            paso = repositorio.Modificar(ventas);
-            Assert.AreEqual(true, paso);
+            ventas = repositorio.Buscar(2);
+            Assert.IsNotNull(ventas);
         }
 
 
@@ -67,9 +66,8 @@ namespace VentasCostillas.Tests
         public void Eliminar()
         {
             RepositorioBase<Ventas> repositorio = new RepositorioBase<Ventas>();
-            int id = 2;
             bool paso = false;
-            paso = repositorio.Eliminar(id);
+            paso = repositorio.Eliminar(2);
             Assert.AreEqual(true, paso);
         }
     }

@@ -405,10 +405,10 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reportes\ListEntradas.rdlc" />
-    <EmbeddedResource Include="Reportes\ListProductos.rdlc" />
-    <EmbeddedResource Include="Reportes\ListUsuarios.rdlc" />
-    <EmbeddedResource Include="Reportes\ListVentas.rdlc" />
+    <Content Include="Reportes\ListEntradas.rdlc" />
+    <Content Include="Reportes\ListProductos.rdlc" />
+    <Content Include="Reportes\ListUsuarios.rdlc" />
+    <Content Include="Reportes\ListVentas.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

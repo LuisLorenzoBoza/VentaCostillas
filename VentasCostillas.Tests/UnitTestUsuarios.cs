@@ -17,7 +17,7 @@ namespace VentasCostillas.Tests
             Usuarios usuario = new Usuarios();
             bool paso = false;
 
-            usuario.UsuarioId = 2;
+            usuario.UsuarioId = 5;
             usuario.Fecha = DateTime.Now;
             usuario.Nombres = "Luis";
             usuario.Email = "luis@hotmail.com";
@@ -33,7 +33,7 @@ namespace VentasCostillas.Tests
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             Usuarios usuario = new Usuarios();
-            usuario = repositorio.Buscar(1);
+            usuario = repositorio.Buscar(5);
             bool paso = false;
             usuario.Nombres = "Pedro";
             paso = repositorio.Modificar(usuario);
@@ -45,7 +45,7 @@ namespace VentasCostillas.Tests
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
             Usuarios usuario = new Usuarios();
-            usuario = repositorio.Buscar(1);
+            usuario = repositorio.Buscar(5);
             Assert.IsNotNull(usuario);
         }
 
@@ -63,9 +63,8 @@ namespace VentasCostillas.Tests
         public void Eliminar()
         {
             RepositorioBase<Usuarios> repositorio = new RepositorioBase<Usuarios>();
-            int id = 2;
             bool paso = false;
-            paso = repositorio.Eliminar(id);
+            paso = repositorio.Eliminar(5);
             Assert.AreEqual(true, paso);
         }
     }
